@@ -1,7 +1,7 @@
 '''
 Basic Binary Tree in Array Representation
 
-Reffered from:
+Referred from:
 www.javatpoint.com/program-to-implement-binary-tree-using-the-linked-list
 '''
 
