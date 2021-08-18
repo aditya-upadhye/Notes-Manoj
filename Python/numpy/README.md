@@ -20,6 +20,8 @@ type, and thus will be the same size in memory. The exception: one can
 have arrays of (Python, including NumPy) objects, thereby allowing for 
 arrays of different sized elements.
 
+<hr>
+
 ### Basic
 #### To create a basic array in `ndarray`
 
@@ -118,11 +120,20 @@ print(np.concatenate((a, b)))
 # Output: [1 2 3 4 5 6 7 8 9]
 ```
 
+#### Indexing
+```python
+arr = np.array([1, 2, 3, 4, 5, 6, 7])
+print(arr[1])
+# Output: 2
+```
+
 #### Slicing
 ```python
 arr = np.array([1, 2, 3, 4, 5, 6, 7])
 print(arr[1:5])
+# Output: [2 3 4 5] 
 ```
+<hr>
 
 ### To know the shape and size of an array
 
@@ -158,6 +169,8 @@ print(a.shape)
 ```
 > (dimension, row, column)
 
+<hr>
+
 ### Reshape
 
 ```python
@@ -167,5 +180,91 @@ print(b)
 # Output: [[0 1]
 # [2 3]
 # [4 5]]
+
+a = np.arange(6)
+b = a.reshape(3, 1, 2)
+print(b)
+# Output: [[0 1]
+# [2 3]
+# [4 5]]
+
+
+a = np.arange(6)
+b = a.reshape(3, 1, -1)
+print(b)
+# Output: [[0 1]
+# [2 3]
+# [4 5]]
+```
+`-1` will calculate the required number to create a matrix. We can use 
+it only once in a one statement
+
+#### To add a new axis to an array
+
+```python
+a = np.array([1, 2, 3, 4, 5, 6])
+print(a.shape)
+# Output: (6,)
+
+a2 = a[np.newaxis, :]
+print(a2.shape)
+# Output: (1, 6)
+
+a2 = a[: , np.newaxis]
+print(a2.shape)
+# Output: (6, 1)
+
+b = np.expand_dims(a, axis=1)
+print(b.shape)
+# Output: (6, 1)
+
+c = np.expand_dims(a, axis=0)
+print(c.shape)
+# Output:  (1, 6)
+```
+<hr>
+
+### Slicing with conditions
+
+We can use condition inside square brackets `[]` for slicing
+
+```python
+a = np.array([[1 , 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+
+print(a[a < 5])
+# Output: [1 2 3 4]
+```
+
+Passing condition without square bracket will return matrix of boolean 
+value
+
+```python
+a = np.array([[1 , 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+
+five_up = (a > 5) | (a == 5)
+print(five_up)
+# Output: [[False False False False]
+# [ True  True  True  True]
+# [ True  True  True True]]
+```
+
+you can use `nonzero` to generate list like `range()`
+```python
+b = np.nonzero(a < 5)
+print(b)
+# Output: (array([0, 0, 0, 0]), array([0, 1, 2, 3]))
+```
+<hr>
+
+### To create coordinate
+
+```python
+list_of_coordinates= list(zip(b[0], b[1]))
+for coord in list_of_coordinates:
+    print(coord)
+# Output: (0, 0)
+#(0, 1)
+#(0, 2)
+#(0, 3)
 ```
 
