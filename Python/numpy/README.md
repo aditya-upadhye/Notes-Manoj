@@ -256,7 +256,7 @@ print(b)
 ```
 <hr>
 
-### To create coordinate
+### To create coordinates
 
 ```python
 list_of_coordinates= list(zip(b[0], b[1]))
@@ -268,3 +268,69 @@ for coord in list_of_coordinates:
 #(0, 3)
 ```
 
+### To create an array from existing data
+This section covers `np.vstack()`, `np.hstack()`, `np.hsplit()`, 
+`.view()`, `copy()`
+
+#### Stacking
+
+You can stack them vertically with `vstack`:
+
+```python
+a1 = np.array([[1, 1],
+               [2, 2]])
+
+a2 = np.array([[3, 3],
+               [4, 4]])
+
+
+a = np.vstack((a1, a2))
+print(a)
+# Output: [[1, 1],
+# [2, 2],
+# [3, 3],
+# [4, 4]]
+```
+Or stack them horizontally with `hstack`:
+```python
+a = np.hstack((a1, a2))
+print(a)
+# Output: [[1 1 3 3]
+# [2 2 4 4]]
+```
+
+#### Splitting
+`np.hsplit`
+```python
+x = np.arange(1, 25).reshape(2, 12)
+print(np.hsplit(x, 3))
+# Output: [array([[ 1,  2,  3,  4],
+# [13, 14, 15, 16]]), array([[ 5,  6,  7,  8],
+# [17, 18, 19, 20]]), array([[ 9, 10, 11, 12],
+# [21, 22, 23, 24]])]
+```
+
+#### Copy and View
+`Copy` will take the complete copy of the data. It will not depend on any 
+array.<br>
+`View` gets affected when original array is changed
+```python
+arr = np.array([1, 2, 3, 4, 5])
+
+x = arr.copy()
+y = arr.view()
+print(x, y)
+# Output: [1 2 3 4 5] [1 2 3 4 5]
+arr[2]=2
+print(x, y)
+# Output: [1 2 3 4 5] [1 2 2 4 5] 
+```
+
+### Basic Matrix Calculation
+
+Addition
+```python
+data = np.array([1, 2])
+ones = np.ones(2, dtype=int)
+data + ones
+```
