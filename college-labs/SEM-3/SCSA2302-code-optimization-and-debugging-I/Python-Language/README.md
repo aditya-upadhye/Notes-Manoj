@@ -505,3 +505,128 @@ x,y = 3,5
 x, y = y, x
 print (x,y)
 ```
+
+#### Python program to find the gcd of two numbers
+
+```
+Step 1:Get 2 integer inputs from the user
+
+Step 2:Next, use decision-making statements or use recursion to check if both the given numbers are divisible by any number (i) without leaving any remainder.
+
+Step 3:If true, then GCD = i
+
+Step 4:Print the GCD of the two numbers
+
+Step 5:End of the program
+```
+
+|Test          |Input        |Result        |
+|--------------|-------------|--------------|
+|Test Case 1   |Enter two numbers<br>60<br>48|The gcd of 60 and 48 is : 12|
+
+
+```python
+def FindGCD(a,b):
+    if a > b:
+        n = b
+    else:
+        n = a
+    
+    for i in range(1, n+1):
+        if((a % i == 0) and (b % i == 0)):
+            gcd = i
+              
+    print("The gcd of 60 and 48 is :", gcd)
+    
+if __name__ == '__main__':
+    a = input()
+    a = int(input())
+    b = int(input())
+    FindGCD(a,b)
+```
+
+#### Python Program to Find Sum of Natural Numbers Using Recursion
+
+```
+The user enters the Nth number as the input, the program then calculates the sum of first N numbers using recursion and then displays the final result.
+
+Example 1: Let n = 5
+
+Therefore, the sum of the first 5 natural numbers = 1 + 2 + 3 + 4 + 5 = 15.
+
+Thus, the output is 15
+```
+|Test          |Input        |Result        |
+|--------------|-------------|--------------|
+|Test case 1   |Enter the number:  25|The sum is  325|
+|Test Case 2   |Enter the number:  -12|Natural number begins from 1|
+
+```python
+def sumOfNaturalNumbers(n):
+    if n >= 1:
+        n = n + sumOfNaturalNumbers(n-1)
+    elif n < 0:
+        return False
+    return n
+if __name__ == '__main__':
+    n = input()
+    n = n[18:]
+    n = sumOfNaturalNumbers(int(n))
+    if(n):
+        print("The sum is ", n)
+    else:
+        print("Natural number begins from 1")
+```
+
+#### Python program to convert a binary number to decimal number.
+
+```
+From decimal to binary
+Input : 8
+Output : 1 0 0 0
+
+From binary to decimal
+Input : 100
+Output : 4
+
+Keep calling conversion function with n/2  till n > 1,
+later perform n % 1 to get MSB of converted binary number.  
+Example :- 7
+1). 7/2 = Quotient = 3(greater than 1), Remainder = 1.
+2). 3/2 = Quotient = 1(not greater than 1), Remainder = 1.
+3). 1%2 = Remainder = 1.
+Therefore, answer is 111.
+```
+|Test          |Input        |Result        |
+|--------------|-------------|--------------|
+Test Case 1|user input, 11110110|Equivalent Decimal Value = 246|
+
+```python
+def conversion(n):
+    if n == 1 or n == 0:
+        return n
+    
+    l = len(str(n)) - 1
+    num = n//pow(10,l)
+    
+    return (pow(2,l) * num)+ conversion(n%pow(10,l))
+if __name__ == '__main__':
+    n = input()
+    n = int(n[12:])
+    n = conversion(n)
+    print("Equivalent Decimal Value =", n)
+```
+
+#### Next Question
+
+```
+
+```
+
+|Test          |Input        |Result        |
+|--------------|-------------|--------------|
+|||
+
+```python
+
+```
