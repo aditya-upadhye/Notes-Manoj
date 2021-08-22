@@ -574,3 +574,310 @@ class prog {
     }
 }
 ```
+
+#### Interfaces
+
+```
+Write a Java Program to find area of a Rectangle, Triangle and Circle implementing an Interface method Area.
+
+Input 
+
+Length = 5
+
+Width = 4
+
+Base = 6
+
+Height = 6
+
+Radius = 6
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>5<br>4<br>6<br>6<br>6</td>
+    <td>Area of Rectangle<br>
+Length = 5<br>
+Width = 4<br>
+Area = 20<br>
+Area of Triangle<br>
+Base = 6<br>
+Height = 6<br>
+Area = 18<br>
+Area of Circle<br>
+Radius = 6<br>
+Area = 113.04</td>
+</tr>
+</table>
+
+```java
+import java.util.Scanner;
+
+interface Polygon {
+    void area();
+    Scanner input = new Scanner(System.in);
+}
+
+class Rectangle implements Polygon {
+    public void area() {
+        int length, width;
+
+        length = input.nextInt();
+        width = input.nextInt();
+
+        System.out.println("Area of Rectangle");
+        System.out.println("Length = " + length);
+        System.out.println("Width = " + width);
+        System.out.println("Area = " + (length * width));
+    }
+}
+
+class Triangle implements Polygon {
+    public void area() {
+        int base, height;
+
+        base = input.nextInt();
+        height = input.nextInt();
+
+        System.out.println("Area of Triangle");
+        System.out.println("Base = " + base);
+        System.out.println("Height = " + height);
+        System.out.println("Area = " + (base * height) / 2);
+    }
+}
+
+class Circle implements Polygon {
+    public void area() {
+        int radius;
+
+        radius = input.nextInt();
+
+        System.out.println("Area of Circle");
+        System.out.println("Radius = " + radius);
+        System.out.println("Area = " + 3.14 * Math.pow(radius, 2));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        Triangle triangle = new Triangle();
+        Circle circle = new Circle();
+
+        rectangle.area();
+        triangle.area();
+        circle.area();
+    }
+}
+```
+
+#### Exception Handling
+
+##### A
+
+```
+Write a java program to handle arithmetic exceptions.
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>
+    </td>
+    <td>
+        Arithmetic exception caught
+    </td>
+</tr>
+</table>
+
+
+
+```java
+class prog 
+{
+    public static void main(String[]args) throws ArithmeticException
+{
+    try{
+        int y=5,x=0;
+        System.out.println(y/x);
+    }
+    catch(ArithmeticException a)
+    {
+System.out.println("Arithmetic exception caught");
+    }
+}
+}
+```
+##### B
+
+```
+Write a java program to create a user defined exception. 
+
+Get a number as input.
+
+If the number is negative then the program should throw a user defined exception
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>
+        -5
+    </td>
+    <td>
+        Exception raised : Negative number
+    </td>
+</tr>
+<tr>
+    <td>T2</td>
+    <td>
+        23
+    </td>
+    <td>
+        Positive number : 23
+    </td>
+</tr>
+
+</table>
+
+
+
+```java
+// Code contributed by: https://github.com/nanna7077
+import java.util.Scanner;
+
+class NegativeNumberException extends Exception {
+    NegativeNumberException() {
+        ;
+    }
+}
+class Tester {
+    static void validate(int num) throws NegativeNumberException {
+        if (num < 0) {
+            throw new NegativeNumberException();
+        }
+        else {
+            System.out.println("Positive number : "+num);
+        }
+    }
+}
+
+class prog {
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+        Tester _tester = new Tester();
+        try{
+            _tester.validate(num);
+        }
+        catch(NegativeNumberException e){
+            System.out.println("Exception raised : Negative number");
+        }
+    }
+}
+```
+
+#### Multiple Exceptions
+
+```
+Write a Java program to demonstrate Exception Handling.
+
+a=10
+
+b=0
+
+Arithmetic Exception : divide by Zero Error
+
+Within try Block
+
+Within Catch Block
+
+Within Finally Block
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>
+        10
+        <br>0
+    </td>
+    <td>
+        Arithmetic Exception : Divide by Zero
+        <br>Within Finally Block
+    </td>
+</tr>
+</table>
+
+
+
+```java
+import java.util.Scanner;
+
+class prog {
+    public static void main(String args[]) throws ArithmeticException {
+        try{
+            Scanner scan = new Scanner(System.in);
+            int A = scan.nextInt();
+            int B = scan.nextInt();
+            int C = A/B;
+            System.out.println("Within try Block");
+            System.out.println("Output (A/B) = "+C);
+        }
+        catch(ArithmeticException e){
+            System.out.println("Arithmetic Exception : Divide by Zero");
+        }
+        finally{
+            System.out.println("Within Finally Block");
+        }
+    }
+}
+```
+
+#### Next question
+
+```
+
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>
+    </td>
+    <td>
+    </td>
+</tr>
+</table>
+
+
+
+```java
+
+```
