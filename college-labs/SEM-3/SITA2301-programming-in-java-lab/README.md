@@ -855,6 +855,107 @@ class prog {
 }
 ```
 
+#### Multithreading
+
+```
+Write a program to implement the concept of Threading by implementing Runnable Interface
+```
+
+<table>
+<tr>
+    <th>Test</th>
+    <th>Input</th>
+    <th>Result</th>
+</tr>
+<tr>
+    <td>T1</td>
+    <td>
+        A
+    <br>B
+    </td>
+        <br>New thread: Thread[A,5,main]  
+        <br>New thread: Thread[B,5,main]
+        <br>A: 3     
+        <br>B: 3
+        <br>A: 2
+        <br>B: 2
+        <br>A: 1
+        <br>B: 1
+        <br>A exiting
+        <br>B exiting  
+    <td>
+    </td>
+</tr>
+</table>
+
+
+
+```java
+import java.util.Scanner;
+
+public class prog implements Runnable {
+    prog(String c, int count){
+        System.out.println(c+": "+count);
+    }
+    
+    prog(){
+        ;
+    }
+    
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        
+        String a = sc.nextLine();
+        String b = sc.nextLine();
+        prog p = new prog();
+        Thread A = new Thread(p, a);
+        Thread B = new Thread(p, b);
+        
+        A.start();
+        B.start();
+        try{
+           A.join(); 
+        }
+        catch(InterruptedException e){
+            ;
+        }
+        try{
+           B.join();
+        }
+        catch(InterruptedException e){
+            ;
+        }
+    }
+    
+    public void run(){
+        Thread cur = Thread.currentThread();
+        String a = cur.getName();
+        System.out.println("New thread: "+cur.toString());
+        int i = 4;
+        while(i >= 0){
+            try{
+                if(i == 4){
+                    ;
+                }
+                else if(i <= 3 && i>0){
+                    //Thread.sleep(1000);    
+                    prog _a = new prog(a, i);
+                }
+                else{    
+                    ;
+                }
+                Thread.sleep(1);
+            }       
+            catch(InterruptedException e){
+                ;
+            }
+            i--;
+        }
+        System.out.println(a+" exiting");
+    }
+}
+```
+
 #### Next question
 
 ```
