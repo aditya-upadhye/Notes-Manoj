@@ -3,7 +3,7 @@ Code Credits: Ajitesh Pathak
 
 Referred from: https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
 
-Posting the same problem in GFG with slight modificaiton on variable name
+Posting the same program in GFG with slight modificaiton on variable name
 for my comfortness
 """
 
