@@ -46,7 +46,7 @@ compiled programming language
 Static type means if you defined a variable as a string, you cannot
 assign other values like integer (or) double on that string type.
 
-Dart supports two types of compilation: **ADT, JIT**
+Dart supports two types of compilation: **AOT, JIT**
 
 1. **AOT** - Ahead of time
 2. **JIT** - Just in time
@@ -116,10 +116,11 @@ Block comment
 
 ### Data Types
 
-There are 2 types of available is strongly typed language: The type of a
-variable is known at compile time. For example C++, Java, Swift.
+There are 2 types of data types available in Dart. 
+**1. Strongly typed language:** The type of a variable is known at compile time. <br>
+For example C++, Java, Swift.
 
-**Dynamically Typed Language:** The type of a variable is known at run
+**2. Dynamically Typed Language:** The type of a variable is known at run
 time.<br>
 For example: Python, Ruby, JavaScript
 
@@ -366,10 +367,10 @@ main() {
     var n = Num(); // To create  object
     int number = 1;
 
-    if(n!==null) {
+    if(n!=null) {
         number = n.num;
     }
-    print(number)
+    print(number);
 }
 ```
 
