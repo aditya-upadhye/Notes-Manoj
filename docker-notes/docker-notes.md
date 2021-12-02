@@ -4,6 +4,12 @@
 A **container** is an isolated environment which runs application with an OS image.
 <hr>
 
+> ### Prerequisites to understand this notes
+
+- Basic knowledge about linux and linux commands
+- Basic knowledge about ports and protocols
+<hr>
+
 > ### Docker vs Virtual Machines
 Virtual Machine runs a complete Operating System with OS kernel and OS image for each and every VM individually<br>
 Whereas, in docker it uses base OS's kernel for all containers and runs only the image to run the applications.
@@ -46,13 +52,13 @@ docker images
 #### To pull an image
 
 ```ps
-docker pull <IMAGE_NAME>:<TAG>
+docker pull [IMAGE_NAME]:[TAG]
 ```
 
 #### To search for a image in docker hub
 
 ```ps
-docker search <image_name_query>
+docker search [image_name_query]
 ```
 
 #### To run a docker image
@@ -108,6 +114,10 @@ docker stop $(docker ps -q)
 docker rm $(docker image ls -a -q)
 ```
 
+#### Port Forwarding in docker
+```
+docker run -dit --name [CONTAINER NAME] -p [STARTING_PORT]:[END_PORT] [IMAGE NAME]
+```
 #### List images arguments and aliases (From `docker help`) 
 ###### List images
 
